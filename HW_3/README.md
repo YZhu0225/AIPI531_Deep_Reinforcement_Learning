@@ -77,12 +77,11 @@ In addition, it's crucial to acknowledge that computational resource limitations
 ```
 git clone 
 ```
-2. Set up environment and install dependencies
+2. Set up environment
 
 ```python
 python -m venv env
 source env/bin/activate
-pip install -r requirements.txt
 ```
 
 3. Download the source code in [this folder](https://drive.google.com/drive/folders/18Z7pJQDrOEZsifkesFCcSU00YhFbDxGa)
