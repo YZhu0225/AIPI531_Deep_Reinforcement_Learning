@@ -18,18 +18,22 @@ The dataset consists of three files: a file with behaviour data (events.csv), a 
 ## Methods
 
 ### One hot encoding item features: 
-To get the item_properties.csv data ready for machine learning, I first combine all the item details we need and clean them up. This means any items that aren't in the user interaction data are taken out and any duplicates are also removed. I also make sure to filter out items that are not currently available for purchase. Then, I pick out the most common item properties to focus on. After that, these properties are turned into a simple format where each item is represented by a line of 0s and 1s: a '1' means the item has that feature, and a '0' means it doesn't. This way, a clear dataframe that shows which items have which features is ready for further analysis and to feed into algorithms that can learn from this data. The notebook is [RR_OneHotEncoding_Features.ipynb]() and the one hot encoded top 500 item features are stored in [item_features.csv]()
+To get the item_properties.csv data ready for machine learning, I first combine all the item details we need and clean them up. This means any items that aren't in the user interaction data are taken out and any duplicates are also removed. I also make sure to filter out items that are not currently available for purchase. Then, I pick out the most common item properties to focus on. After that, these properties are turned into a simple format where each item is represented by a line of 0s and 1s: a '1' means the item has that feature, and a '0' means it doesn't. This way, a clear dataframe that shows which items have which features is ready for further analysis and to feed into algorithms that can learn from this data. The notebook is [RR_OneHotEncoding_Features.ipynb](https://github.com/YZhu0225/AIPI531_Deep_Reinforcement_Learning/blob/main/HW_3/RR_OneHotEncoding_Features.ipynb) and the one hot encoded top 500 item features are stored in [item_features.csv]()
 
 ### Vanilla DRL recommenders
-The open-source code implementation from [Xin Xin](https://drive.google.com/file/d/185KB520pBLgwmiuEe7JO78kUwUL_F45t/view) [1] is leveraged in this study. Without considering item features, the Supervised Negative Q-Learning (SNQN) model is used as the vanilla DRL recommender. The script of model structure and training/evaluation process is in [SNQN.py]() 
+The open-source code implementation from [Xin Xin](https://drive.google.com/file/d/185KB520pBLgwmiuEe7JO78kUwUL_F45t/view) [1] is leveraged in this study. Without considering item features, the Supervised Negative Q-Learning (SNQN) model is used as the vanilla DRL recommender. The script of model structure and training/evaluation process is in [SNQN.py](https://drive.google.com/file/d/1RJzK7TV7m39MwPfI_kkBjWyMEs0P225p/view?usp=drive_link) 
 
 ![Alt text](image-1.png)
 
 
 ### DRL recommenders with item features
 To take item features into consideration, I follow the structure of this paper to create the Hierarchical Recurrent Neural Network (hRNN) model, and the modified source code is in [SNQN_with_Features.py](). Specifically:
-$$ \tilde{\phi_j}(h_k)=(1-\lambda)\phi_j(h_k)+\lambda{\phi}'(h_k,f_j), \\
-where \; \phi_j(h_k)=(w_j^T h_k+b_j) \; and \; {\phi}'(h_k,f_j)=(w(f_j)^Th_k + b(f_j)) $$
+```math
+\tilde{\phi_j}(h_k)=(1-\lambda)\phi_j(h_k)+\lambda{\phi}'(h_k,f_j)
+```
+```math
+where \; \phi_j(h_k)=(w_j^T h_k+b_j) \; and \; {\phi}'(h_k,f_j)=(w(f_j)^Th_k + b(f_j)) 
+```
 
 ![Alt text](image-2.png)
 
@@ -81,9 +85,9 @@ source env/bin/activate
 pip install -r requirements.txt
 ```
 
-3. Download the source code in [this folder]()
+3. Download the source code in [this folder](https://drive.google.com/drive/folders/18Z7pJQDrOEZsifkesFCcSU00YhFbDxGa)
 
-3. Run through the [Notebook]()
+3. Run through the [Notebook](https://github.com/YZhu0225/AIPI531_Deep_Reinforcement_Learning/blob/main/HW_3/DRL_RR.ipynb)
 
 
 ## Reference
