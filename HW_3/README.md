@@ -86,7 +86,7 @@ source env/bin/activate
 
 3. Download the source code in [this folder](https://drive.google.com/drive/folders/18Z7pJQDrOEZsifkesFCcSU00YhFbDxGa)
 
-3. Run through the [Notebook](https://github.com/YZhu0225/AIPI531_Deep_Reinforcement_Learning/blob/main/HW_3/DRL_RR.ipynb)
+3. Run through the [Notebook](https://github.com/YZhu0225/AIPI531_Deep_Reinforcement_Learning/blob/main/HW3_DRL_RR_colab.ipynb)
 
 
 ## Reference
